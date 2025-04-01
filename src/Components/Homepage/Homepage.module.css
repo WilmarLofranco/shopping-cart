@@ -1,0 +1,27 @@
+.homepage {
+    display: flex;
+    flex-direction: column;
+    max-width: 1000px;
+    margin: 0 auto;
+    gap: 20px;
+    padding: 50px;
+    align-items: center;
+}
+
+.homepage h2 {
+    font-size:xx-large;
+}
+
+.homepage h3 {
+    font-size:x-large;
+    font-weight: 540;
+}
+
+.homepage button {
+    font-size: 30px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    background-color: rgb(51, 95, 238);
+    color: white;
+    border-style: hidden;
+}
