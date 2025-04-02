@@ -1,0 +1,40 @@
+.cartContainer {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    max-width: 1000px;
+    padding: 0 50px;
+    align-items: center;
+}
+
+.addedProduct {
+    border: 2px solid rgb(51, 95, 238);
+    display: flex;
+    padding: 10px;
+    gap: 5px;
+    border-radius: 5px;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.addedProduct img {
+    width: 150px;
+    height: 150px;
+}
+
+.quantityChanger button {
+    border: none;
+    border-radius: 2px;
+    padding: 4px 10px;
+    color: white;
+}
+
+.increment {
+    background-color: green;
+}
+
+.decrement {
+    background-color: red;
+}

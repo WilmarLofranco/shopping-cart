@@ -1,18 +1,37 @@
-import { useEffect, useState } from "react";
-import styles from "./Shop.module.css"
-import NavBar from "../Navbar/NavBar";
+// Shop.jsx
 
-const ProductCard = ({image, title, price, rate, count}) => {
+import { useEffect, useState, useContext } from "react";
+import styles from "./Shop.module.css";
+import NavBar from "../Navbar/NavBar";
+import { CartContext } from "../../CartContext";
+import { useNavigate } from "react-router-dom";
+
+const ProductCard = ({id, image, title, price, rate, count}) => {
+    const { cart, addToCart } = useContext(CartContext);
+    const navigate = useNavigate();
+    
+    const isAlreadyInCart = cart.some((item) => item.id === id);
+
+    const handleAddCartBtn = () => {
+        if (!isAlreadyInCart) {
+        addToCart({id, image, title, price});
+        } else {
+            navigate('/cart');
+        }
+    }
+
     return (
-        <div className={styles.productCard}>
+        <div className={styles.productCard} key={id}>
             <img src={image} />
-            <p>{title}</p>
+            <h3>{title}</h3>
             <div style={{fontWeight:"bold"}}>${price}</div>
             <div className={styles.rating}>
                 <span>⭐{rate}</span>
                 <span>{count} sold</span>
             </div>
-            <button>Add to Cart</button>
+            <button className='addToCartBtn' onClick={handleAddCartBtn}>
+                {isAlreadyInCart ? 'Go to Cart' : 'Add to Cart'}
+            </button>
         </div>
     )
 }
@@ -41,6 +60,7 @@ export default function Shop() {
                     return (
                     <ProductCard 
                     key={product.id} 
+                    id={product.id} 
                     image={product.image} 
                     title={product.title} 
                     price={product.price} 
