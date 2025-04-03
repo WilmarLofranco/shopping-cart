@@ -14,7 +14,7 @@ const ProductCard = ({id, image, title, price, rate, count}) => {
 
     const handleAddCartBtn = () => {
         if (!isAlreadyInCart) {
-        addToCart({id, image, title, price});
+        addToCart({id, image, title, price, quantity: 1});
         } else {
             navigate('/cart');
         }

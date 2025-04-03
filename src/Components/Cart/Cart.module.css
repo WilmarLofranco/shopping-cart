@@ -3,9 +3,10 @@
     display: flex;
     flex-direction: column;
     gap: 5px;
-    max-width: 1000px;
+    max-width: 1200px;
     padding: 0 50px;
     align-items: center;
+    flex: 5;
 }
 
 .addedProduct {
@@ -37,4 +38,12 @@
 
 .decrement {
     background-color: red;
+}
+
+.billContainer > div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-size: x-large;
+    font-weight: bold;
 }

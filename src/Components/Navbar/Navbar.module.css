@@ -44,3 +44,13 @@
     background-color: #4e90d6; 
     color: inherit;
   }
+
+.cartBtn {
+  padding:16px;
+  border-radius: 5px;
+}
+
+  .cartBtn:active,
+  .cartBtn:hover{
+    background-color: #4e90d6; 
+  }

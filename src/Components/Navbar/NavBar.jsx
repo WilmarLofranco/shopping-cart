@@ -1,9 +1,11 @@
 import { Link, NavLink } from "react-router-dom";
-import logo from "../../assets/logo.png"
-import home from "../../assets/home-outline.svg"
-import shop from "../../assets/shopping-outline.svg"
-import cart from "../../assets/cart-outline.svg"
-import styles from "./NavBar.module.css"
+import logo from "../../assets/logo.png";
+import home from "../../assets/home-outline.svg";
+import shop from "../../assets/shopping-outline.svg";
+import cartIcon from "../../assets/cart-outline.svg";
+import styles from "./NavBar.module.css";
+import { CartContext } from "../../CartContext";
+import { useContext } from "react";
 
 const Logo = () => {
     return (
@@ -28,9 +30,16 @@ const MiddleNav = () => {
 }
 
 const Cart = () => {
+    const {cart} = useContext(CartContext)
+
     return (
-    <div className={styles.nav}>
-        <NavLink to='/cart' className={styles.navlink}><img className={styles.icons} src={cart} alt="Shopping cart Icon" /></NavLink>
+    <div className={styles.cartBtn} style={{position:'relative'}}>
+        <NavLink to='/cart'><img style={{width:'50px'}} src={cartIcon} alt="Shopping cart" /></NavLink>
+        {(cart.length > 0) && (
+            <div style={{backgroundColor:'red', width:'20px', height:'20px', position:'absolute', top:'10px', right:'10px', borderRadius:'10px', textAlign:'center', color:'white'}}>
+                {cart.length}
+            </div>
+        )}
     </div>
     )
 }
